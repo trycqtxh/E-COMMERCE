@@ -13,7 +13,7 @@ class CariRadio extends React.Component{
 					name="kategori"
 					value={this.props.value}
 					onChange={this.props.controlFunc}
-				/> {this.props.kategori}
+				/> {this.props.kategori} <span className="badge pull-right">12</span>
 			</label>
 			)
 	}
@@ -37,7 +37,7 @@ class CariCheckBox extends React.Component{
 							value={opt.id}
 							onChange={this.props.controlFunc}
 							checked={this.props.selectedOptions.indexOf(opt.id)>-1}
-						/> {opt.brand}
+						/> {opt.brand} <span className="badge pull-right">12</span>
 					</label>
 					)
 			})	

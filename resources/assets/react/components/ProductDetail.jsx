@@ -70,6 +70,13 @@ export default class ProductDetail extends Component{
                         			<p>Keterangan: {this.state.model.deskripsi}</p>
                         		</div>
                         	</div>
+                                <div className="">
+                                    <div className="btn-group">
+                                        <a className="btn btn-default"><i className="fa fa-facebook"></i></a>
+                                        <a className="btn btn-default"><i className="fa fa-twitter"></i></a>
+                                        <a className="btn btn-default"><i className="fa fa-instagram"></i></a>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </aside>  

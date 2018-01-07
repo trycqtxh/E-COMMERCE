@@ -23,12 +23,25 @@ Route::resource('user', 'UserController')
 Route::group(['prefix'=>'produk'], function(){
 	Route::get('/', 'ProdukController@index');
 	Route::get('/{url}', 'ProdukController@getByUrl');
+
+	Route::post('/', 'ProdukController@store');
+	Route::get('/{produk}', 'ProdukController@show');
+	Route::put('/{produk}', 'ProdukController@update');
+	Route::delete('/{produk}', 'ProdukController@destroy');
 });
 
 Route::group(['prefix'=>'kategori'], function(){
 	Route::get('/', 'KategoriController@index');
+	Route::post('/', 'KategoriController@store');
+	Route::get('/{kategori}', 'KategoriController@show');
+	Route::put('/{kategori}', 'KategoriController@update');
+	Route::delete('/{kategori}', 'KategoriController@destroy');
 });
 
 Route::group(['prefix'=>'brand'], function(){
 	Route::get('/', 'BrandController@index');
+	Route::post('/', 'BrandController@store');
+	Route::get('/{brand}', 'BrandController@show');
+	Route::put('/{brand}', 'BrandController@update');
+	Route::delete('/{brand}', 'BrandController@destroy');
 });

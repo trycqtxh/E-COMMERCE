@@ -18,13 +18,19 @@ class ProdukTransformer extends TransformerAbstract
      */
     public function transform(Produk $model)
     {
+        $harga_baru = 0;
+        if (!empty($model->diskon) && $model->diskon !== '0.00') {
+            $harga_baru = $model->harga - ($model->harga / ($model->diskon * 100));/// $model->diskon * 100;// - $diskon;
+        }
         return [
             'id' => (int) $model->id,
             'url_produk' => $model->kode,
             'produk' => $model->nama,
             'harga' => 'Rp.'.number_format($model->harga, 2, ',', '.'),
+            'harga_baru' => 'Rp.'.number_format($harga_baru, 2, ',', '.'),
             'berat' => $model->berat,
             'warna' => $model->warna,
+            'diskon' => ($model->diskon !== '0.00' || !($model->diskon))? $model->diskon : null,
             'deskripsi' => $model->keterangan,
         ];
     }

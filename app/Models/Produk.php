@@ -19,6 +19,16 @@ class Produk extends Model
     	'created_at', 'updated_at', 'deleted_at'
     ];
 
+    protected $fillable = ['kode', 'nama', 'harga', 'berat', 'warna', 'keterangan', 'brand_id', 'kategori_id'];
+
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function($model){
+            $model->url = str_slug($model->nama, '-');
+        });
+    }
+
     public function gambar()
     {
     	return $this->hasMany(Gambar::class, 'produk_id');

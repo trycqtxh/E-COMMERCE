@@ -101,6 +101,8 @@ export default class Index extends React.Component{
 				brand={produk.brand.data.thumb}
 				harga={produk.harga}
 				url={produk.url_produk}
+				diskon={produk.diskon}
+				harga_baru={produk.harga_baru}
 			>
 				{produk.produk}
 			</ProductItem>

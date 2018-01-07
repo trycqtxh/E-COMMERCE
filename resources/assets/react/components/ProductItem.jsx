@@ -14,8 +14,22 @@ export default class ProductItem extends React.Component{
 		                    <div className="item--product-brand">
 		                        <img src={this.props.brand} />
 		                    </div>
-		                    <h2 className="item--product-title">{this.props.harga}</h2>
+		                    
+		                    {(this.props.diskon) ? (
+		                    		<div>
+										<h2 style={{textDecoration:'line-through'}} className="item--product-title">{this.props.harga}</h2>
+	    								<h6>Discont {this.props.diskon * 100}%</h6>
+	    								<h2 className="item--product-title">{this.props.harga_baru}</h2>
+    								</div>
+		                    	): (
+		                    		<div>
+		                    			<h2 className="item--product-title">{this.props.harga}</h2>
+		                    		</div>
+		                    	)
+		                    }
+		                    
 	                    	<h4 className="item--product-subtitle">{this.props.children}</h4>
+
                     	</NavLink>
 		            	<div className="item--product-btn hidden-lg hidden-md">
 		                    <div className="item--product-btn-pesan">

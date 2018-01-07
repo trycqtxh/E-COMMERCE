@@ -18,4 +18,5 @@ mix
    	.sass('resources/assets/sass/_style_front_end.scss', 'public/css')
 
 // ReactJS
- 	.react('resources/assets/react/react.jsx', 'public/js');
+ 	.react('resources/assets/react/react.jsx', 'public/js')
+ 	.react('resources/assets/admin-react/admin.jsx', 'public/js');

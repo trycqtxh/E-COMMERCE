@@ -43,4 +43,64 @@ class ProdukController extends Controller
             ->item($produk, new ProdukTransformer())
             ->parseIncludes('gallery');
     }
+
+
+
+
+    public function show(Produk $produk)
+    {
+        return response()->json($produk);
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'kode' => 'required|unique:produk',
+            'nama' => 'required',
+            'harga' => 'required|numeric',
+            'berat' => 'required',
+            'warna' => 'required',
+            'keterangan' => 'required',
+            'brand_id' => 'required',
+            'kategori_id' => 'required'
+        ]);
+
+        Produk::create($request->all());
+
+        return response()->json([
+            'title' => 'Created!',
+            'message' => 'Data Berhasil Ditambahkan'
+        ], 201);
+    }
+
+    public function update(Request $request, Produk $produk)
+    {
+        $this->validate($request, [
+            'kode' => 'required',
+            'nama' => 'required',
+            'harga' => 'required|numeric',
+            'berat' => 'required',
+            'warna' => 'required',
+            'keterangan' => 'required',
+            'brand_id' => 'required',
+            'kategori_id' => 'required'
+        ]);
+
+        $produk->update($request->all());
+
+        return response()->json([
+            'title' => 'Updated!',
+            'message' => 'Data Berhasil Diubah'
+        ], 201);
+    }
+
+    public function destroy(Produk $produk)
+    {
+        $produk->delete();
+
+        return response()->json([
+            'title' => 'Deleted!',
+            'message' => 'Data Berhasil Dihapus'
+        ], 201);
+    }
 }

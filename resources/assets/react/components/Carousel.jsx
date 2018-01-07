@@ -1,17 +1,29 @@
 import React from 'react'
+// import ReactImageZoom from 'react-image-zoom'
 
+//<img src={this.props.slide.asli} alt={this.props.alt} />
 class CarouselSlide extends React.Component{
 	constructor(props){
 		super(props)
+		this.zoomRef = null;
 	}
 
+	componentDidMount(){
+		
+	}
+
+	getZoomRef(ref){ 
+		this.zoomRef = ref
+	};
+
 	render(){
+		//<ReactImageZoom {...props} />
 		return (
 				<div className={
 					this.props.index == this.props.activeIndex 
 					? 'item detail-gallery active'
 					: 'item detail-gallery'}>
-    				<a href="">
+    				<a>
     					<img src={this.props.slide.asli} alt={this.props.alt} />
     				</a>
     			</div>
